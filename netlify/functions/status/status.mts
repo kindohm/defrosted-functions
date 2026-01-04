@@ -39,7 +39,7 @@ export default (request: Request, context: Context) => {
     const now = Number.isNaN(ms) ? new Date() : new Date(ms);
 
     const status = getDefrostedStatus(now);
-    return Response.json({ status });
+    return Response.json({ status }, { headers });
   } catch (error) {
     // @ts-expect-error its ok
     return new Response(error.toString(), {
