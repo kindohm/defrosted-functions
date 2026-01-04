@@ -25,6 +25,13 @@ const getDefrostedStatus = (now: Date) => {
 };
 
 export default (request: Request, context: Context) => {
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Content-Type": "application/json",
+  };
+
   try {
     const url = new URL(request.url);
     const testDate = url.searchParams.get("testDate") ?? "";
